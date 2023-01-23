@@ -12,13 +12,19 @@ namespace GromovSchool
     using System;
     using System.Collections.Generic;
     
-    public partial class TypeOfTour
+    public partial class Tag
     {
-        public int TypeOfTourId { get; set; }
-        public int TourId { get; set; }
-        public int TypeId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tag()
+        {
+            this.Client = new HashSet<Client>();
+        }
     
-        public virtual Tour Tour { get; set; }
-        public virtual Type Type { get; set; }
+        public int ID { get; set; }
+        public string Title { get; set; }
+        public string Color { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Client> Client { get; set; }
     }
 }

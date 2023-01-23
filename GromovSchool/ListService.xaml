@@ -9,7 +9,9 @@
       Background="White"
       Title="ListService"
       FontFamily="Comic Sans MS">
-
+    <Page.Resources>
+        <BitmapImage x:Key="defaultImage" UriSource="Resources\no_img.png"/>
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -18,6 +20,40 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <TextBlock Text="~ Список услуг ~" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
-        
+        <ListView x:Name="lvListService" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="2">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="Margin" Value="30 10 30 10"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="10" CornerRadius="20" BorderThickness="1" BorderBrush="#FF9A9999">
+                        <Grid Background="{Binding DiscountColor}" Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding MainImagePath, TargetNullValue={StaticResource defaultImage}}" Grid.Column="0" Height="150"/>
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Margin="10"/>
+                                <StackPanel Orientation="Horizontal" Margin="10">
+                                    <TextBlock x:Name="tbOldPrice" Uid="{Binding Discount}" Text="{Binding Cost, StringFormat='{}{0:0}\ '}" TextDecorations="Strikethrough" Loaded="tbOldPrice_Loaded"/>
+                                    <TextBlock x:Name="tbCurrentPrice" Text="{Binding CurrentPrice, StringFormat={}{0:g} рублей}"/>
+                                    <TextBlock Text=" за "/>
+                                    <TextBlock Text="{Binding DurationInMinute, StringFormat={}{0} минут}"/>
+                                </StackPanel>
+                                <TextBlock x:Name="tbDiscount" Uid="{Binding Discount}" Text="{Binding Discount, StringFormat={}*скидка {0}%}" Margin="10" Loaded="tbDiscount_Loaded" Foreground="Red" FontSize="8"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="btnChangeService" Uid="{Binding ID}" Content="Редактировать" Height="50" Width="200" Visibility="Hidden"/>
+                                    <Button x:Name="btnDeleteService" Uid="{Binding ID}" Content="Удалить" Height="50" Width="200" Visibility="Hidden"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

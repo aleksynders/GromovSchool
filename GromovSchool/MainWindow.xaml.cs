@@ -23,7 +23,7 @@ namespace GromovSchool
         public MainWindow()
         {
             InitializeComponent();
-            Base.BD = new Entities();
+            Base.BD = new EntitiesBD();
             FrameClass.MainFrame = fMain;
             FrameClass.MainFrame.Navigate(new ListService());
         }

@@ -12,13 +12,18 @@ namespace GromovSchool
     using System;
     using System.Collections.Generic;
     
-    public partial class HotelOfTour
+    public partial class Gender
     {
-        public int HotelOfTourId { get; set; }
-        public int HotelId { get; set; }
-        public int TourId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Gender()
+        {
+            this.Client = new HashSet<Client>();
+        }
     
-        public virtual Hotel Hotel { get; set; }
-        public virtual Tour Tour { get; set; }
+        public string Code { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Client> Client { get; set; }
     }
 }

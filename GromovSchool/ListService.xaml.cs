@@ -23,6 +23,33 @@ namespace GromovSchool
         public ListService()
         {
             InitializeComponent();
+            lvListService.ItemsSource = Base.BD.Service.ToList();
+        }
+
+        private void tbOldPrice_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBlock textBlock = (TextBlock)sender;
+            if (textBlock.Uid != null)
+            {
+                textBlock.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                textBlock.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void tbDiscount_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBlock textBlock = (TextBlock)sender;
+            if (textBlock.Uid != null)
+            {
+                textBlock.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                textBlock.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

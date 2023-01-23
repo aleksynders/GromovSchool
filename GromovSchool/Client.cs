@@ -12,28 +12,30 @@ namespace GromovSchool
     using System;
     using System.Collections.Generic;
     
-    public partial class Hotel
+    public partial class Client
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Hotel()
+        public Client()
         {
-            this.HotelComment = new HashSet<HotelComment>();
-            this.HotelImage = new HashSet<HotelImage>();
-            this.HotelOfTour = new HashSet<HotelOfTour>();
+            this.ClientService = new HashSet<ClientService>();
+            this.Tag = new HashSet<Tag>();
         }
     
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int CountOfStars { get; set; }
-        public string CountryCode { get; set; }
-        public string Description { get; set; }
+        public int ID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Patronymic { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
+        public System.DateTime RegistrationDate { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string GenderCode { get; set; }
+        public string PhotoPath { get; set; }
     
-        public virtual Country Country { get; set; }
+        public virtual Gender Gender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HotelComment> HotelComment { get; set; }
+        public virtual ICollection<ClientService> ClientService { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HotelImage> HotelImage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HotelOfTour> HotelOfTour { get; set; }
+        public virtual ICollection<Tag> Tag { get; set; }
     }
 }

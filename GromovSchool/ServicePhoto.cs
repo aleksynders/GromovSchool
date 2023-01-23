@@ -12,19 +12,12 @@ namespace GromovSchool
     using System;
     using System.Collections.Generic;
     
-    public partial class Type
+    public partial class ServicePhoto
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Type()
-        {
-            this.TypeOfTour = new HashSet<TypeOfTour>();
-        }
+        public int ID { get; set; }
+        public int ServiceID { get; set; }
+        public string PhotoPath { get; set; }
     
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TypeOfTour> TypeOfTour { get; set; }
+        public virtual Service Service { get; set; }
     }
 }

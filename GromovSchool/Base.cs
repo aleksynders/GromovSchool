@@ -8,6 +8,6 @@ namespace GromovSchool
 {
     internal class Base
     {
-        public static Entities BD;
+        public static EntitiesBD BD;
     }
 }

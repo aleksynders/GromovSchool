@@ -13,10 +13,10 @@ namespace GromovSchool
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class EntitiesBD : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public EntitiesBD()
+            : base("name=EntitiesBD")
         {
         }
     
@@ -25,14 +25,17 @@ namespace GromovSchool
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Country> Country { get; set; }
-        public virtual DbSet<Hotel> Hotel { get; set; }
-        public virtual DbSet<HotelComment> HotelComment { get; set; }
-        public virtual DbSet<HotelImage> HotelImage { get; set; }
-        public virtual DbSet<HotelOfTour> HotelOfTour { get; set; }
+        public virtual DbSet<Client> Client { get; set; }
+        public virtual DbSet<ClientService> ClientService { get; set; }
+        public virtual DbSet<DocumentByService> DocumentByService { get; set; }
+        public virtual DbSet<Gender> Gender { get; set; }
+        public virtual DbSet<Manufacturer> Manufacturer { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductPhoto> ProductPhoto { get; set; }
+        public virtual DbSet<ProductSale> ProductSale { get; set; }
+        public virtual DbSet<Service> Service { get; set; }
+        public virtual DbSet<ServicePhoto> ServicePhoto { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Tour> Tour { get; set; }
-        public virtual DbSet<Type> Type { get; set; }
-        public virtual DbSet<TypeOfTour> TypeOfTour { get; set; }
+        public virtual DbSet<Tag> Tag { get; set; }
     }
 }
