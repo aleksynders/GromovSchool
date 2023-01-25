@@ -20,6 +20,41 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <TextBlock Text="~ Список услуг ~" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock Text="Наименование " FontSize="24"/>
+                <TextBlock Text="Описание " FontSize="24"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="320">
+                <TextBox Name="tbSearchName" Height="26" Margin="3" SelectionChanged="tbSearchName_SelectionChanged"/>
+                <TextBox Name="tbSearchDescription" Height="26" Margin="3" SelectionChanged="tbSearchDescription_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                <TextBlock Text="Размер скидки " Margin="5, 0, 5, 0" FontSize="24"/>
+                <TextBlock Text="Сортировка " Margin="5, 0, 5, 0" FontSize="24"/>
+            </StackPanel>
+            <StackPanel Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Width="320">
+                <ComboBox Name="cbDiscount" Height="26" Margin="3" SelectionChanged="cbDiscount_SelectionChanged">
+                    <ComboBoxItem>Все</ComboBoxItem>
+                    <ComboBoxItem>От 0% до 5%</ComboBoxItem>
+                    <ComboBoxItem>От 5% до 15%</ComboBoxItem>
+                    <ComboBoxItem>От 15% до 30%</ComboBoxItem>
+                    <ComboBoxItem>От 30% до 70%</ComboBoxItem>
+                    <ComboBoxItem>От 70% до 100%</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Name="cbSorting" Height="26" Margin="3" SelectionChanged="cbSorting_SelectionChanged">
+                    <ComboBoxItem>Без сортировки</ComboBoxItem>
+                    <ComboBoxItem>По возрастанию стоимости услуг</ComboBoxItem>
+                    <ComboBoxItem>По убыванию стоимости услуг</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
         <ListView x:Name="lvListService" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="2">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -55,5 +90,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Grid Grid.Row="4">
+            <TextBlock HorizontalAlignment="Center" Name="tbCurrentCount" VerticalAlignment="Center" FontSize="26" Text="KolVo"></TextBlock>
+        </Grid>
     </Grid>
 </Page>

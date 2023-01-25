@@ -77,6 +77,9 @@
     <Compile Include="Gender.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="LogAdmin.xaml.cs">
+      <DependentUpon>LogAdmin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Manufacturer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -85,7 +88,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="PartialService.cs" />
+    <Compile Include="Classes\PartialService.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -107,7 +110,11 @@
     <Compile Include="Tag.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Page Include="ListService.xaml">
+    <Page Include="LogAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ListService.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,9 +126,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Base.cs" />
-    <Compile Include="FrameClass.cs" />
-    <Compile Include="ListService.xaml.cs">
+    <Compile Include="Classes\Base.cs" />
+    <Compile Include="Classes\FrameClass.cs" />
+    <Compile Include="Pages\ListService.xaml.cs">
       <DependentUpon>ListService.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -174,8 +181,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\" />
-    <Folder Include="Pages\" />
     <Folder Include="Windows\" />
   </ItemGroup>
   <ItemGroup>

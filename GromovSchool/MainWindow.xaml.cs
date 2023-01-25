@@ -20,12 +20,23 @@ namespace GromovSchool
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static bool Adm;
         public MainWindow()
         {
             InitializeComponent();
             Base.BD = new EntitiesBD();
             FrameClass.MainFrame = fMain;
+            Adm = false;
             FrameClass.MainFrame.Navigate(new ListService());
+        }
+
+        private void tbLoginAdmin_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(Adm == false)
+            {
+                LogAdmin loginAdmin = new LogAdmin();
+                loginAdmin.ShowDialog();
+            }
         }
     }
 }
