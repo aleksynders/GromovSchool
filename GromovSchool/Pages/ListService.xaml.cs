@@ -20,13 +20,16 @@ namespace GromovSchool
     /// </summary>
     public partial class ListService : Page
     {
-        public ListService()
+        bool Adm;
+        public ListService(bool Adm)
         {
             InitializeComponent();
+            this.Adm = Adm;
             lvListService.ItemsSource = Base.BD.Service.ToList();
             tbCurrentCount.Text = Convert.ToString(lvListService.Items.Count);
             cbDiscount.SelectedIndex = 0;
             cbSorting.SelectedIndex = 0;
+            
         }
 
         private void tbOldPrice_Loaded(object sender, RoutedEventArgs e)
@@ -160,6 +163,32 @@ namespace GromovSchool
         private void cbSorting_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Filt();
+        }
+
+        private void btnChangeService_Loaded(object sender, RoutedEventArgs e)
+        {
+            Button btnChangeService = sender as Button;
+            if (Adm)
+            {
+                btnChangeService.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnChangeService.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void btnDeleteService_Loaded(object sender, RoutedEventArgs e)
+        {
+            Button buttonDeleteService = sender as Button;
+            if (Adm)
+            {
+                buttonDeleteService.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                buttonDeleteService.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

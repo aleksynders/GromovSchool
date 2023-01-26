@@ -10,7 +10,7 @@
       Title="ListService"
       FontFamily="Comic Sans MS">
     <Page.Resources>
-        <BitmapImage x:Key="defaultImage" UriSource="Resources\no_img.png"/>
+        <BitmapImage x:Key="defaultImage" UriSource="\Resources\no_img.png"/>
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -81,8 +81,8 @@
                                 </StackPanel>
                                 <TextBlock x:Name="tbDiscount" Uid="{Binding Discount}" Text="{Binding Discount, StringFormat={}*скидка {0}%}" Margin="10" Loaded="tbDiscount_Loaded" Foreground="Red" FontSize="8"/>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button x:Name="btnChangeService" Uid="{Binding ID}" Content="Редактировать" Height="50" Width="200" Visibility="Hidden"/>
-                                    <Button x:Name="btnDeleteService" Uid="{Binding ID}" Content="Удалить" Height="50" Width="200" Visibility="Hidden"/>
+                                    <Button x:Name="btnChangeService" Uid="{Binding ID}" Content="Редактировать" Height="50" Width="200" Visibility="Hidden" Loaded="btnChangeService_Loaded"/>
+                                    <Button x:Name="btnDeleteService" Uid="{Binding ID}" Content="Удалить" Height="50" Width="200" Visibility="Hidden" Loaded="btnDeleteService_Loaded"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>

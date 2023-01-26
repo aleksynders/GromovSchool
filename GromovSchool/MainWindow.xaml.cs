@@ -27,7 +27,7 @@ namespace GromovSchool
             Base.BD = new EntitiesBD();
             FrameClass.MainFrame = fMain;
             Adm = false;
-            FrameClass.MainFrame.Navigate(new ListService());
+            FrameClass.MainFrame.Navigate(new ListService(Adm));
         }
 
         private void tbLoginAdmin_MouseDown(object sender, MouseButtonEventArgs e)
@@ -36,6 +36,18 @@ namespace GromovSchool
             {
                 LogAdmin loginAdmin = new LogAdmin();
                 loginAdmin.ShowDialog();
+                if (Adm == true)
+                {
+                    FrameClass.MainFrame.Navigate(new ListService(Adm));
+                    tbLoginAdmin.Text = "Выйти из режима администратора";
+                }
+            }
+            else
+            {
+                Adm = false;
+                MessageBox.Show("Режим администратора выключен");
+                FrameClass.MainFrame.Navigate(new ListService(Adm));
+                tbLoginAdmin.Text = "Режим администратора";
             }
         }
     }

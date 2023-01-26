@@ -11,7 +11,7 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Введите код администратора" Margin="5" HorizontalAlignment="Center" FontSize="26" FontWeight="Bold"/>
             <TextBox x:Name="tbKodAdmin" Width="100" Margin="5" MaxLength="4" TextAlignment="Center" FontSize="20"/>
-            <TextBlock Style="{StaticResource tbLoginAdmin}" Margin="0" Text="Войти" Width="125" FontSize="20" TextAlignment="Center"/>
+            <TextBlock Style="{StaticResource tbLoginAdmin}" Margin="0" Text="Войти" Width="125" FontSize="20" TextAlignment="Center" MouseDown="TextBlock_MouseDown"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -23,5 +23,20 @@ namespace GromovSchool
         {
             InitializeComponent();
         }
+
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (tbKodAdmin.Text == "0000")
+            {
+                MainWindow.Adm = true;
+                MessageBox.Show("Вы активировали режим администратора");
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Код введён не верно");
+            }
+        }
     }
 }
