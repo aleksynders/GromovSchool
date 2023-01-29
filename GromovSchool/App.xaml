@@ -18,5 +18,18 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="btnMain" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Background" Value="#FF04A0FF"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Cursor" Value="Hand"/>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="IsMouseCaptured" Value="True">
+                    <Setter Property="Background" Value="#FF9A9999"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

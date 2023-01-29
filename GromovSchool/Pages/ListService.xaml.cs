@@ -190,5 +190,48 @@ namespace GromovSchool
                 buttonDeleteService.Visibility = Visibility.Collapsed;
             }
         }
+
+        private bool getProverkaInfoAboutService(int index) // Есть ли запись на услугу
+        {
+            foreach (ClientService clientService in Base.BD.ClientService.ToList())
+            {
+                if (clientService.ServiceID == index)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void btnDeleteService_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Button btn = (Button)sender;
+                int index = Convert.ToInt32(btn.Uid);
+                Service service = Base.BD.Service.FirstOrDefault(x => x.ID == index);
+                if (getProverkaInfoAboutService(index))
+                {
+                    MessageBox.Show("Не возможно удалить");
+                    return;
+                }
+                if (MessageBox.Show("Вы уверены что хотите удалить услугу?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    foreach (ServicePhoto servicePhoto in Base.BD.ServicePhoto.ToList())
+                    {
+                        if (servicePhoto.ServiceID == index)
+                        {
+                            Base.BD.ServicePhoto.Remove(servicePhoto);
+                        }
+                    }
+                    Base.BD.Service.Remove(service);
+                    Base.BD.SaveChanges();
+                    FrameClass.MainFrame.Navigate(new ListService(Adm));
+                }
+            }
+            catch {
+                MessageBox.Show("При удаление услуги возникла ошибка");
+            }
+        }
     }
 }
